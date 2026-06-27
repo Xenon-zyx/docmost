@@ -62,6 +62,7 @@ import {
   TransclusionReference,
   TableView,
   BaseEmbed as BaseEmbedNode,
+  MindMap,
 } from "@docmost/editor-ext";
 import {
   randomElement,
@@ -87,6 +88,7 @@ import AttachmentView from "@/features/editor/components/attachment/attachment-v
 import CodeBlockView from "@/features/editor/components/code-block/code-block-view.tsx";
 import DrawioView from "../components/drawio/drawio-view";
 import ExcalidrawView from "@/features/editor/components/excalidraw/excalidraw-view-lazy.tsx";
+import MindMapView from "@/features/editor/components/mindmap/mindmap-view";
 import EmbedView from "@/features/editor/components/embed/embed-view.tsx";
 import PdfView from "@/features/editor/components/pdf/pdf-view.tsx";
 import SubpagesView from "@/features/editor/components/subpages/subpages-view.tsx";
@@ -364,6 +366,9 @@ export const mainExtensions = [
       createCustomHandle: createResizeHandle,
       className: buildResizeClasses("node-excalidraw"),
     },
+  }),
+  MindMap.configure({
+    view: MindMapView,
   }),
   Embed.configure({
     view: EmbedView,

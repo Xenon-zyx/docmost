@@ -30,6 +30,7 @@ import {
   IconTag,
   IconMoodSmile,
   IconRotate2,
+  IconHierarchy,
 } from "@tabler/icons-react";
 import {
   CommandProps,
@@ -474,6 +475,31 @@ const CommandGroups: SlashMenuGroupedItemsType = {
       icon: IconExcalidraw,
       command: ({ editor, range }: CommandProps) =>
         editor.chain().focus().deleteRange(range).setExcalidraw().run(),
+    },
+    {
+      title: "Mind map",
+      description: "Create a mind map diagram",
+      searchTerms: ["mindmap", "mind map", "diagram", "brainstorm", "hierarchy"],
+      icon: IconHierarchy,
+      command: ({ editor, range }: CommandProps) => {
+        const defaultData = {
+          nodes: [
+            {
+              id: "root",
+              label: "Central Topic",
+              x: 300,
+              y: 180,
+            },
+          ],
+          edges: [],
+        };
+        editor
+          .chain()
+          .focus()
+          .deleteRange(range)
+          .setMindMap({ data: JSON.stringify(defaultData) })
+          .run();
+      },
     },
     {
       title: "Date",

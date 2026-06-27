@@ -38,3 +38,4 @@ export {
   type DocxImageResolver,
 } from "./lib/prosemirror-docx";
 export * from "./lib/base-embed";
+export { MindMap } from "./lib/mindmap/mindmap";

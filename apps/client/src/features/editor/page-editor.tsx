@@ -58,6 +58,7 @@ import {
 } from "@/features/editor/components/common/editor-paste-handler.tsx";
 import ExcalidrawMenu from "./components/excalidraw/excalidraw-menu-lazy";
 import DrawioMenu from "./components/drawio/drawio-menu";
+import MindMapMenu from "./components/mindmap/mindmap-menu";
 import { useCollabToken } from "@/features/auth/queries/auth-query.tsx";
 import SearchAndReplaceDialog from "@/features/editor/components/search-and-replace/search-and-replace-dialog.tsx";
 import { useDebouncedCallback, useDocumentVisibility } from "@mantine/hooks";
@@ -453,6 +454,7 @@ export default function PageEditor({
                 <SubpagesMenu editor={editor} />
                 <ExcalidrawMenu editor={editor} />
                 <DrawioMenu editor={editor} />
+                <MindMapMenu editor={editor} />
                 <ColumnsMenu editor={editor} />
               </div>
             )}
