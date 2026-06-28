@@ -70,8 +70,8 @@ export function MindMapMenu({ editor }: EditorMenuProps) {
     };
   }, [editor]);
 
-  const alignLeft = useCallback(() => {
-    editor
+  const alignLeft = useCallback(() => { 
+    editor 
       .chain()
       .focus(undefined, { scrollIntoView: false })
       .updateAttributes("mindmap", { align: "left" })

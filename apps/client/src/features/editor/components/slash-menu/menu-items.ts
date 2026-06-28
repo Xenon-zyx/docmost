@@ -1,3 +1,4 @@
+//加功能的入口
 import {
   IconBlockquote,
   IconCaretRightFilled,
@@ -477,7 +478,7 @@ const CommandGroups: SlashMenuGroupedItemsType = {
         editor.chain().focus().deleteRange(range).setExcalidraw().run(),
     },
     {
-      title: "Mind map",
+      title: "Mind map", 
       description: "Create a mind map diagram",
       searchTerms: ["mindmap", "mind map", "diagram", "brainstorm", "hierarchy"],
       icon: IconHierarchy,

@@ -96,7 +96,7 @@ export function MindMapView(props: NodeViewProps) {
 
     const mindMapData = parseMindMapData(node.attrs.data);
 
-    const graph = new Graph({
+    const graph = new Graph({ //初始化画布
       container: containerRef.current,
       background: {
         color: "#fafafa",
@@ -178,7 +178,7 @@ export function MindMapView(props: NodeViewProps) {
 
     graphRef.current = graph;
 
-    mindMapData.nodes.forEach((nodeData) => {
+    mindMapData.nodes.forEach((nodeData) => {  //加载数据(Josn-->图)
       graph.addNode({
         id: nodeData.id,
         x: nodeData.x,
@@ -316,29 +316,29 @@ export function MindMapView(props: NodeViewProps) {
       setEditText(label);
     });
 
-    graph.on("blank:click", () => {
+    graph.on("blank:click", () => { 
       setSelectedNodeId(null);
       setEditingNodeId(null);
     });
 
-    graph.on("node:moved", () => {
+    graph.on("node:moved", () => {  //保存数据(图-->Json)
       saveGraphData();
     });
 
-    graph.on("edge:connected", () => {
+    graph.on("edge:connected", () => {  
       saveGraphData();
     });
 
-    graph.on("edge:removed", () => {
+    graph.on("edge:removed", () => { 
       saveGraphData();
     });
 
-    graph.on("node:removed", () => {
+    graph.on("node:removed", () => { 
       setSelectedNodeId(null);
       saveGraphData();
     });
 
-    graph.on("node:mouseenter", ({ node: cellNode }) => {
+    graph.on("node:mouseenter", ({ node: cellNode }) => { //显示连接点
       const ports = cellNode.getPorts();
       ports.forEach((port: any) => {
         cellNode.setPortProp(
